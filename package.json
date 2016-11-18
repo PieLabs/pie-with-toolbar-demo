@@ -1,0 +1,18 @@
+{
+  "name": "pie-with-toolbar-demo",
+  "version": "1.0.0",
+  "devDependencies": {
+    "webpack": "2.1.0-beta.25",
+    "webpack-dev-server": "^2.1.0-beta.10"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "lodash": "^4.16.6"
+  },
+  "main": "bundle.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
