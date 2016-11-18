@@ -1,6 +1,6 @@
 import ToolbarContributionEvent from './events/toolbar-contribution';
 
-export default class SbacSection extends HTMLElement {
+export default class Section extends HTMLElement {
 
   constructor() {
     super();

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import ToolbarButtonAction from './toolbar-button-action';
 
-export default class SbacToolbar extends HTMLElement {
+export default class Toolbar extends HTMLElement {
 
   constructor() {
     super();

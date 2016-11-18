@@ -1,4 +1,4 @@
-import ToolbarButtonAction from './toolbar-button-action';
+import ToolbarButtonAction from '../demo/toolbar-button-action';
 
 export default class MarkForReview extends ToolbarButtonAction {
 

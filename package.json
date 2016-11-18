@@ -9,6 +9,7 @@
     "build": "webpack"
   },
   "dependencies": {
+    "corespring-choice": "^1.1.0",
     "lodash": "^4.16.6",
     "material-ui": "^0.16.4",
     "react": "^15.4.0",
