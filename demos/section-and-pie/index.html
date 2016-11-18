@@ -3,13 +3,26 @@
 
 <head>
   <title>section and pie</title>
+  <link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    demo-section {
+      /*--section-border-color: blue;*/
+    }
+  </style>
   <script type="text/javascript" src="./bundle.js"></script>
 </head>
 
 <body>
-  <h4>This is a section and pie</h4>
+  <h4>This is a section and pie!</h4>
   <demo-section key="1">
-    <multiple-choice pie-id="1"></multiple-choice>
+    <div slot="toolbar">
+      <tools-notepad-icon></tools-notepad-icon>
+    </div>
+    <corespring-choice pie-id="1"></corespring-choice>
   </demo-section>
 </body>
 
