@@ -68,13 +68,14 @@ export default class Section extends HTMLElement {
     this.addEventListener(ToolbarContributionEvent.eventType, (event) => {
       let toolbar = this.shadowRoot.querySelector('#toolbar');
       _.forEach(event.detail.actions, a => {
-        a.icon(toolbar);
+        let span = document.createElement('span');
+        toolbar.appendChild(span);
+        a.icon(span);
       });
     });
 
     let key = this.attributes.getNamedItem('key').value;
     let el = this.shadowRoot.querySelector('#key-label');
-    console.log(el);
     el.textContent = key;
   }
 }

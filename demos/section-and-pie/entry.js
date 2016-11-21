@@ -1,9 +1,6 @@
 import Section from '../../src/demo/section';
 customElements.define('demo-section', Section);
 
-import Toolbar from '../../src/demo/toolbar';
-customElements.define('demo-toolbar', Toolbar);
-
 import CorespringChoice from 'corespring-choice';
 customElements.define('corespring-choice', CorespringChoice);
 

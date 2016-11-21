@@ -19,22 +19,12 @@
 </head>
 
 <body>
-  <!--<binding context="window">
-    <h4>This is a section and pie!</h4>
-    <demo-section key="1">
-      <div slot="toolbar">
-        <tools-notepad-icon config="[[notepad]]"></tools-notepad-icon>
-      </div>
-      <corespring-choice pie-id="1" model="{{models['1']}}" session="{{sessions['1']}}" env="{{env}}"></corespring-choice>
-    </demo-section>
-  </binding>-->
   <h4>This is a section and pie!</h4>
   <demo-section key="1">
-    <div id="tools">
+    <div slot="tools">
       <tools-notepad></tools-notepad>
     </div>
-    <div class="toolbar"></div>
-    <!--<corespring-choice pie-id="1"></corespring-choice>-->
+    <corespring-choice pie-id="1"></corespring-choice>
   </demo-section>
 </body>
 
