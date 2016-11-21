@@ -12,6 +12,7 @@
     "babel-core": "^6.18.2",
     "corespring-choice": "PieElements/corespring-choice#tool-demo",
     "css-loader": "^0.26.0",
+    "draft-js": "^0.9.1",
     "json-loader": "^0.5.4",
     "less-loader": "^2.2.3",
     "lodash": "^4.16.6",

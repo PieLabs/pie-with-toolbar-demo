@@ -5,39 +5,24 @@ export default class Toolbar extends HTMLElement {
 
   constructor() {
     super();
-    let shadowRoot = this.attachShadow({ mode: 'open' });
+
+    let shadowRoot = this.attachShadowRoot({ mode: 'open' });
+
     shadowRoot.innerHTML = `
-      <style>
-      :host {
-
+    <style>
+      :host{
+        display: block;
       }
-
-      :host :slot{
-        display: inline;
-      }
-      
-      :host .holder {
-        border: solid 1px red;
-      }
-      
-      </style>
-      <div class="holder">
-        <slot></slot>
-      </div>
+    </style>
+    <div class="holder"></div> 
     `;
   }
 
   addActions(actions) {
-    console.log('add actions: ', actions);
-
     let holder = this.shadowRoot.querySelector('.holder');
-
-
     _.forEach(actions, a => {
-      let button = document.createElement('toolbar-button-action');
-      button.action = a;
-      // button.setAttribute('is', 'toolbar-button-action');
-      holder.appendChild(button);
+      holder.appendChild(a.icon);
+      a.onIconAdded(a.icon, holder);
     });
   }
 

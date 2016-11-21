@@ -1,8 +1,14 @@
 import Section from '../../src/demo/section';
 customElements.define('demo-section', Section);
 
+import Toolbar from '../../src/demo/toolbar';
+customElements.define('demo-toolbar', Toolbar);
+
 import CorespringChoice from 'corespring-choice';
 customElements.define('corespring-choice', CorespringChoice);
+
+import Notepad from '../../src/tools/notepad';
+customElements.define('tools-notepad', Notepad);
 
 import NotepadIcon from '../../src/tools/notepad/icon';
 customElements.define('tools-notepad-icon', NotepadIcon);

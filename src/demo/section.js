@@ -16,10 +16,9 @@ export default class Section extends HTMLElement {
         display: block;
         padding: 10px;
         margin: 10px;
-        height: 50px;
         font-family: 'Roboto', san-serif;
       }
-      
+
       :host .label-holder{
         background-color: var(--section-label-bg, red); 
         height: 100%;
@@ -44,30 +43,35 @@ export default class Section extends HTMLElement {
       :host .header{
         padding: 0;
         height: 100%;
+        height: 50px;
         border-bottom: solid 1px var(--section-border-color, red); 
         border-top: solid 1px var(--section-border-color, red); 
       }
 
+      :host .tools{
+        background-color: red;
+      }
       </style> 
       <div class="header">
         <span class="label-holder">
           <label id="key-label"></label>
         </span>
-        <span id="toolbar">
-          <slot name="toolbar"></slot>
-        </span>
+        <span id="toolbar"></span>
+        <slot class="tools" name="tools"></slot>
       </div>
       <slot></slot>
     `;
 
-    this.addEventListener(ToolbarContributionEvent.eventType, (event) => {
-      console.log('event: ', event);
-      let toolbar = this.shadowRoot.querySelector('#toolbar');
-      toolbar.addActions(event.detail.actions);
-    });
   }
 
   connectedCallback() {
+    this.addEventListener(ToolbarContributionEvent.eventType, (event) => {
+      let toolbar = this.shadowRoot.querySelector('#toolbar');
+      _.forEach(event.detail.actions, a => {
+        a.icon(toolbar);
+      });
+    });
+
     let key = this.attributes.getNamedItem('key').value;
     let el = this.shadowRoot.querySelector('#key-label');
     console.log(el);
