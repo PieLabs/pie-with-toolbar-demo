@@ -15,12 +15,18 @@
       /*--section-border-color: blue;*/
     }
   </style>
-  <script type="text/javascript" src="./bundle.js"></script>
+<script type="text/javascript" src="./bundle.js"></script>
 </head>
 
 <body>
   <h4>This is a section and pie!</h4>
   <demo-section key="1">
+    <div slot="tools">
+      <tools-notepad></tools-notepad>
+    </div>
+    <corespring-choice pie-id="1"></corespring-choice>
+  </demo-section>
+  <demo-section key="2">
     <div slot="tools">
       <tools-notepad></tools-notepad>
     </div>

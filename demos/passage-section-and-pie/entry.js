@@ -1,3 +1,15 @@
+import tapEventPlugin from 'react-tap-event-plugin';
+tapEventPlugin();
+
+import LayoutHPane from '../../src/layout/h-pane';
+customElements.define('layout-h-pane', LayoutHPane);
+
+import Passage from '../../src/demo/passage/index';
+customElements.define('demo-passage', Passage);
+
+import ExpandButton from '../../src/demo/passage/expand-button';
+customElements.define('expand-button', ExpandButton);
+
 import Section from '../../src/demo/section';
 customElements.define('demo-section', Section);
 
@@ -9,12 +21,8 @@ customElements.define('tools-notepad', Notepad);
 
 import * as choiceController from 'corespring-choice/controller/src/index';
 
-import _ from 'lodash';
+import _ from 'lodash'
 
-import tapEventPlugin from 'react-tap-event-plugin';
-tapEventPlugin();
-
-console.log('choiceController: ', choiceController);
 
 let config = require('./config.json');
 
@@ -36,5 +44,13 @@ document.addEventListener('pie.register', (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('dom content loaded');
+
+  // document.querySelector('#expand').addEventListener('click', (event) => {
+  //   event.target.dispatchEvent(new CustomEvent('expand', { bubbles: true }));
+  // });
+
+  // document.querySelector('#collapse').addEventListener('click', (event) => {
+  //   event.target.dispatchEvent(new CustomEvent('collapse', { bubbles: true }));
+  // });
 });
 

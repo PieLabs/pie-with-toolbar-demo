@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>section and pie</title>
+  <!-- required by draft-js -->
+  <meta charset="utf-8" />
+  <link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    demo-section {
+      /*--section-border-color: blue;*/
+    }
+
+    .h-pane{
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+    }
+
+    demo-passage{
+      height: 100%;
+    }
+  </style>
+<script type="text/javascript" src="./bundle.js"></script>
+</head>
+
+<body>
+  <demo-main-toolbar></demo-main-toolbar>
+  <layout-h-pane class="h-pane">
+    <demo-passage slot="left" passage-url="passage.html"></demo-passage>
+    <div slot="right">
+      <demo-section key="1">
+        <div slot="tools">
+          <tools-notepad></tools-notepad>
+        </div>
+        <corespring-choice pie-id="1"></corespring-choice>
+      </demo-section>
+    </div>
+  </layout-h-pane>
+</body>
+
+</html>

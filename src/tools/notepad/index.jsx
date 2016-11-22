@@ -4,13 +4,11 @@ import ReactDOM from 'react-dom';
 import ContentCreate from 'material-ui/svg-icons/content/create';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import IconButton from 'material-ui/IconButton';
-import tapEventPlugin from 'react-tap-event-plugin';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { Editor, EditorState } from 'draft-js';
+import { Icon } from './icon';
 
-
-tapEventPlugin();
 
 export default class Notepad extends HTMLElement {
 
@@ -51,18 +49,19 @@ export default class Notepad extends HTMLElement {
   }
 
   connectedCallback() {
+    let renderIcon = (holder, disabled) => {
+      let re = React.createElement(Icon, { disabled: disabled });
+      ReactDOM.render(re, holder);
+    }
 
     this.dispatchEvent(new ToolbarContributionEvent({
       icon: (holder) => {
-        this.icon = document.createElement('tools-notepad-icon');
-        this.icon.addEventListener('click', () => {
+        this.iconholder = holder;
+        holder.addEventListener('click', () => {
           this.open = true;
-          this.icon.open = true;
+          renderIcon(holder, true);
         });
-        holder.appendChild(this.icon);
-      },
-      handler: () => {
-        console.log('handle notepad click...')
+        renderIcon(holder, false);
       }
     }));
 
@@ -70,28 +69,23 @@ export default class Notepad extends HTMLElement {
 
     let e = React.createElement(_Notepad, {
       onClose: () => {
-        console.log('[onClose] ... ');
         this._open = false;
-        this.icon.open = false;
+        renderIcon(this.iconholder, false);
       }
     });
 
-    let rendered = ReactDOM.render(e, this.shadowRoot.querySelector('#root'), () => {
-    });
-
-    this.element = rendered;
+    this.element = ReactDOM.render(e, this.shadowRoot.querySelector('#root'));
   }
 }
 
 class _Notepad extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       open: false,
       editorState: EditorState.createEmpty()
     }
-
     this.focus = () => this.refs.editor.focus();
   }
 
@@ -101,15 +95,12 @@ class _Notepad extends React.Component {
   }
 
   close() {
-    console.log('[close], ', this);
     this.setState({ open: false }, () => {
-      console.log('[state callback]....');
       this.props.onClose();
     });
   }
 
   handleClose() {
-    console.log('this.props: ', this.props);
     this.setState({ open: false });
   }
 
