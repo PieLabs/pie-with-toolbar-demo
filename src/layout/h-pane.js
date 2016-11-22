@@ -11,29 +11,40 @@ export default class LayoutHPane extends HTMLElement {
     <style>
 
       :host{
-
         --h-pane-bg-color: white;
-        
-        display: flex;
+        position:relative; 
         background-color: var(--h-pane-bg-color, red);
-        flex-flow: row;
         width: 100%;
       }
 
       :host .left-pane{
-        flex: 1;
+        position: absolute;
+        background-color: var(--h-pane-bg-color, red);
+        left: 0;
+        bottom: 0;
+        top: 0;
+        width: 50%;
         border-right: solid 1px rgba(0,0,0,0.1);
+        z-index: 1;
+        transition: width 100ms;
+      }
+
+      .left-pane.expanded{
+        width: 80%;
+        -webkit-box-shadow: 4px 0px 10px -2px rgba(0,0,0,0.1);
+        -moz-box-shadow: 4px 0px 10px -2px rgba(0,0,0,0.1);
+        box-shadow: 4px 0px 10px -2px rgba(0,0,0,0.1);
       }
 
       :host .right-pane{
+        z-index: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 50%;
         background-color: var(--h-pane-bg-color, red);
-        flex: 1;
         transition: all 400ms;
-      }
-
-      :host .right-pane.collapsed{
-        flex-grow: 0.2;
-        width: 200px;
       }
       
     </style> 
@@ -63,23 +74,23 @@ export default class LayoutHPane extends HTMLElement {
         setTimeout(() => {
           this._animating = false;
           event.detail.done(this.expanded);
-        }, 300);
+        }, 120);
       }
     }
 
     this.addEventListener('expand', handleChange(() => {
-      let e = this.shadowRoot.querySelector('.right-pane');
-      e.className += ' collapsed';
+      let e = this.shadowRoot.querySelector('.left-pane');
+      e.className += ' expanded';
     }));
 
     this.addEventListener('collapse', handleChange(() => {
-      let e = this.shadowRoot.querySelector('.right-pane');
-      e.className = 'right-pane';
+      let e = this.shadowRoot.querySelector('.left-pane');
+      e.className = 'left-pane';
     }));
   }
 
   get expanded() {
-    return this.shadowRoot.querySelector('.right-pane').className === 'right-pane collapsed';
+    return this.shadowRoot.querySelector('.left-pane').className === 'left-pane expanded';
   }
 
 }
