@@ -19,6 +19,9 @@ customElements.define('corespring-choice', CorespringChoice);
 import Notepad from '../../src/tools/notepad';
 customElements.define('tools-notepad', Notepad);
 
+import DemoMainToolbar from '../../src/demo/main-toolbar/index';
+customElements.define('demo-main-toolbar', DemoMainToolbar);
+
 import * as choiceController from 'corespring-choice/controller/src/index';
 
 import _ from 'lodash'

@@ -14,7 +14,6 @@ export default class LayoutHPane extends HTMLElement {
         --h-pane-bg-color: white;
         position:relative; 
         background-color: var(--h-pane-bg-color, red);
-        width: 100%;
       }
 
       :host .left-pane{
@@ -45,6 +44,7 @@ export default class LayoutHPane extends HTMLElement {
         width: 50%;
         background-color: var(--h-pane-bg-color, red);
         transition: all 400ms;
+        overflow: scroll;
       }
       
     </style> 

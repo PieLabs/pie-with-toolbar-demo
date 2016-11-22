@@ -7,7 +7,7 @@ export default class Passage extends HTMLElement {
     sr.innerHTML = `
     <style>
       :host{
-        --passage-toolbar-border-color: rgba(0,0,0,0.3);
+        --passage-toolbar-border-color: rgba(0,0,0,0.2);
         display: flex;
         flex-direction: column;
       }
