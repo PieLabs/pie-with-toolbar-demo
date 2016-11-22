@@ -1,0 +1,83 @@
+{
+  "pies": [
+    {
+      "id": "1",
+      "pie": {
+        "name": "corespring-choice",
+        "version": "1.0.0",
+        "langs": [
+          "en-US"
+        ]
+      },
+      "correctResponse": [
+        "3"
+      ],
+      "feedback": {},
+      "translations": {
+        "default_locale": "en-US"
+      },
+      "model": {
+        "prompt": "Which statement best expresses the theme of the text?",
+        "choiceMode": "radio",
+        "keyMode": "numbers",
+        "disabled": false,
+        "choices": [
+          {
+            "label": "Home may be found in an unexpected place.",
+            "value": "1"
+          },
+          {
+            "label": "Nature is the best educator of young children",
+            "value": "2"
+          },
+          {
+            "label": "Turning your back on civilization is the only way to live.",
+            "value": "3"
+          },
+          {
+            "label": "You must leave your past behind in order to find yourself",
+            "value": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "pie": {
+        "name": "corespring-choice",
+        "version": "1.0.0",
+        "langs": [
+          "en-US"
+        ]
+      },
+      "correctResponse": [
+        "4"
+      ],
+      "feedback": {},
+      "model": {
+        "prompt": "Which sentence from the text best supports your answer in part A?",
+        "choiceMode": "radio",
+        "keyMode": "numbers",
+        "disabled": false,
+        "choices": [
+          {
+            "label": "\"When I first saw where we were going to live, I vacillated between feeling terrified and excited.\"",
+            "value": "1"
+          },
+          {
+            "label": "\"On my first walk around the property, I saw two horned toads, a red-tailed hawk, and some deer tracks.\"",
+            "value": "2"
+          },
+          {
+            "label": "\"With no street lights timed to turn on at sunset, when night came it was darker than anything I had ever experienced.\"",
+            "value": "3"
+          },
+          {
+            "label": "\"I've been going to school in the valley, but I feel most at home up here with my wild fellow canyon dwellers.\"",
+            "value": "4"
+          }
+        ]
+      }
+    }
+  ]
+}
