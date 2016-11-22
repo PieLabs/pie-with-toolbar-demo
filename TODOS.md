@@ -4,3 +4,4 @@
 * text input pie
 * text to speech 
 * glossary
+* handle multiple same toolbar contributions
