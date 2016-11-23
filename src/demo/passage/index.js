@@ -38,7 +38,6 @@ export default class Passage extends HTMLElement {
 
   connectedCallback() {
     let url = this.getAttribute('passage-url');
-    console.log('load from : ', url);
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.onload = (e) => {

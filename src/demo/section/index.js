@@ -1,9 +1,17 @@
-import ToolbarContributionEvent from '../events/toolbar-contribution';
+import ToolbarContributionEvent from '../../events/toolbar-contribution';
+import includes from 'lodash/includes';
+import forEach from 'lodash/forEach';
+
+import {Strikethrough} from './strikethrough';
+import {Notepad} from './notepad';
 
 export default class Section extends HTMLElement {
 
   constructor() {
     super();
+
+    this._capabilities = [Strikethrough, Notepad];
+    this._activeCapabilities = {};
 
     let shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.innerHTML = `
@@ -64,13 +72,32 @@ export default class Section extends HTMLElement {
 
   }
 
+  _addIcon(capability){
+    let span = document.createElement('span');
+    span.setAttribute('data-capability', capability);
+    toolbar.appendChild(span);
+
+    span.addEventListener('click', (event) => {
+      console.log('click: ', event.target);
+    });
+
+  }
+
   connectedCallback() {
     this.addEventListener(ToolbarContributionEvent.eventType, (event) => {
       let toolbar = this.shadowRoot.querySelector('#toolbar');
-      _.forEach(event.detail.actions, a => {
-        let span = document.createElement('span');
-        toolbar.appendChild(span);
-        a.icon(span);
+      forEach(event.detail.capabilities, c => {
+
+        if(!this._activeCapabilities[c.name]){
+          let Capability = _.find(this._capabilities, a => a.NAME === c.name);
+          if(!Capability){
+            throw new Error('unsupported capability: ' + c.name);
+          }
+          let instance =  new Capability(toolbar);
+          this._activeCapabilities[c.name] = instance;
+        }
+
+        this._activeCapabilities[c.name].add(c);
       });
     });
 

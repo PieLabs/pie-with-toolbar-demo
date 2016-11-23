@@ -2,14 +2,18 @@ const EVENT_TYPE = 'toolbar-contribution';
 
 export default class ToolbarContributionEvent extends CustomEvent {
 
-  constructor(actions) {
+  constructor(capabilities) {
 
-    actions = Array.isArray(actions) ? actions : [actions];
+    if(!capabilities){
+      throw new Error('capabilities can not be undefined')
+    }
+    
+    capabilities = Array.isArray(capabilities) ? capabilities : [capabilities];
 
     super(EVENT_TYPE, {
       bubbles: true,
       detail: {
-        actions: actions
+        capabilities: capabilities 
       }
     });
   }

@@ -15,7 +15,7 @@ import SelectField from 'material-ui/SelectField';
 import map from 'lodash/map';
 import MenuItem from 'material-ui/MenuItem';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+// injectTapEventPlugin();
 
 export default class DemoMainToolbar extends HTMLElement {
 

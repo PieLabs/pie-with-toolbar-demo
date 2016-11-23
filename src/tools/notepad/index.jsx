@@ -55,13 +55,14 @@ export default class Notepad extends HTMLElement {
     }
 
     this.dispatchEvent(new ToolbarContributionEvent({
-      icon: (holder) => {
-        this.iconholder = holder;
-        holder.addEventListener('click', () => {
-          this.open = true;
-          renderIcon(holder, true);
+      name: 'notepad',
+      observable: (o) => {
+        this._observable = o;
+        this._observable.onUpdate((newValue) => {
+          if (newValue !== this.open) {
+            this.open = newValue;
+          }
         });
-        renderIcon(holder, false);
       }
     }));
 
@@ -70,7 +71,7 @@ export default class Notepad extends HTMLElement {
     let e = React.createElement(_Notepad, {
       onClose: () => {
         this._open = false;
-        renderIcon(this.iconholder, false);
+        this._observable.update(false);
       }
     });
 

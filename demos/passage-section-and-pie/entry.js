@@ -10,7 +10,7 @@ customElements.define('demo-passage', Passage);
 import ExpandButton from '../../src/demo/passage/expand-button';
 customElements.define('expand-button', ExpandButton);
 
-import Section from '../../src/demo/section';
+import Section from '../../src/demo/section/index';
 customElements.define('demo-section', Section);
 
 import CorespringChoice from 'corespring-choice';
@@ -40,5 +40,18 @@ document.addEventListener('pie.register', (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('dom content loaded');
+});
+
+let envControl;
+
+window.pie = window.pie || {};
+window.pie.env = { mode: 'gather'}
+
+document.addEventListener('pie.env-requested', (event) => {
+  envControl = event.target;
+  envControl.env = window.pie.env;
+  envControl.addEventListener('envChanged', (event) => {
+    handleEnvChanged(event.detail.env);
+  });
 });
 
