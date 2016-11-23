@@ -61,7 +61,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -69,66 +69,27 @@
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tutorial_launcher__ = __webpack_require__(1);
-
-
-class MultipleChoice extends HTMLElement {
-
-  constructor() {
-    super();
-    this.tutorialLauncher = new __WEBPACK_IMPORTED_MODULE_0__tutorial_launcher__["a" /* default */]();
-  }
-
-  toggleStrikeThrough(enabled) {
-    this.strikeThroughEnabled = enabled;
-  }
-
-  connectedCallback() {
-
-    let tutorial = {
-      icon: '...',
-      handler: tutorialLauncher.launch('path/to/toolbar/tutorial')
-    }
-
-    let strikeThrough = {
-      icon: '...',
-      handler: this.toggleStrikeThrough
-    }
-
-    this.dispatchEvent(new ToolbarContributionEvent(
-      tutorial,
-      strikeThrough
-    ));
-  }
-}
-/* harmony export (immutable) */ exports["a"] = MultipleChoice;
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-class TutorialLauncher {
-
-  launch(path) {
-    console.log('launch: ', path);
-  }
-}
-/* harmony export (immutable) */ exports["a"] = TutorialLauncher;
-
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_multiple_choice__ = __webpack_require__(0);
+throw new Error("Cannot find module \"./src/toolbar-button-action\"");
+throw new Error("Cannot find module \"./src/multiple-choice\"");
+throw new Error("Cannot find module \"./src/mark-for-review\"");
+throw new Error("Cannot find module \"./src/sbac-toolbar\"");
+throw new Error("Cannot find module \"./src/sbac-section\"");
 console.log('hi');
 
 
+customElements.define('toolbar-button-action', __WEBPACK_IMPORTED_MODULE_0__src_toolbar_button_action___default.a, { extends: 'button' });
 
-customElements.define('multiple-choice', __WEBPACK_IMPORTED_MODULE_0__src_multiple_choice__["a" /* default */]);
+
+customElements.define('multiple-choice', __WEBPACK_IMPORTED_MODULE_1__src_multiple_choice___default.a);
+
+
+customElements.define('mark-for-review', __WEBPACK_IMPORTED_MODULE_2__src_mark_for_review___default.a);
+
+
+customElements.define('sbac-toolbar', __WEBPACK_IMPORTED_MODULE_3__src_sbac_toolbar___default.a);
+
+
+customElements.define('sbac-section', __WEBPACK_IMPORTED_MODULE_4__src_sbac_section___default.a);
 
 /***/ }
 /******/ ]);

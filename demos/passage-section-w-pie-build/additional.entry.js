@@ -1,5 +1,5 @@
-import tapEventPlugin from 'react-tap-event-plugin';
-tapEventPlugin();
+// import tapEventPlugin from 'react-tap-event-plugin';
+// tapEventPlugin();
 
 import LayoutHPane from '../../src/layout/h-pane';
 customElements.define('layout-h-pane', LayoutHPane);
@@ -13,8 +13,6 @@ customElements.define('expand-button', ExpandButton);
 import Section from '../../src/demo/section';
 customElements.define('demo-section', Section);
 
-import CorespringChoice from 'corespring-choice';
-customElements.define('corespring-choice', CorespringChoice);
 
 import Notepad from '../../src/tools/notepad';
 customElements.define('tools-notepad', Notepad);
@@ -22,21 +20,7 @@ customElements.define('tools-notepad', Notepad);
 import DemoMainToolbar from '../../src/demo/main-toolbar/index';
 customElements.define('demo-main-toolbar', DemoMainToolbar);
 
-import * as choiceController from 'corespring-choice/controller/src/index';
-
-import _ from 'lodash'
-
-let config = require('./config.json');
-
-document.addEventListener('pie.register', (event) => {
-  let id = event.target.getAttribute('pie-id');
-  let rawModel = _.find(config.pies, (p) => p.id === id);
-  choiceController.model(rawModel, {}, { mode: 'gather' })
-    .then((uiModel) => {
-      event.target.model = uiModel;
-      event.target.session = {};
-    });
-});
+// import _ from 'lodash'
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('dom content loaded');
