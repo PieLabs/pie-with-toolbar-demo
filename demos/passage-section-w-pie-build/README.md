@@ -31,6 +31,14 @@ static . # or whatever static file server you want...
 
 > the `pack-question` build uses a uid to place the controllers within the dom. This uid is logged at the end of the pack command. make sure that this id is set correctly in `index.html`
 
+
+## deploy
+
+For this you'll need a heroku app you have write/deploy access to...
+
+```shell
+./deployment.sh pie-toolbar-demo
+```
 # Build TODOS
 
 ### set up externals
