@@ -2,8 +2,8 @@ import ToolbarContributionEvent from '../../events/toolbar-contribution';
 import includes from 'lodash/includes';
 import forEach from 'lodash/forEach';
 
-import {Strikethrough} from './strikethrough';
-import {Notepad} from './notepad';
+import { Strikethrough } from './strikethrough';
+import { Notepad } from './notepad';
 
 export default class Section extends HTMLElement {
 
@@ -72,7 +72,7 @@ export default class Section extends HTMLElement {
 
   }
 
-  _addIcon(capability){
+  _addIcon(capability) {
     let span = document.createElement('span');
     span.setAttribute('data-capability', capability);
     toolbar.appendChild(span);
@@ -85,15 +85,19 @@ export default class Section extends HTMLElement {
 
   connectedCallback() {
     this.addEventListener(ToolbarContributionEvent.eventType, (event) => {
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
       let toolbar = this.shadowRoot.querySelector('#toolbar');
       forEach(event.detail.capabilities, c => {
 
-        if(!this._activeCapabilities[c.name]){
+        if (!this._activeCapabilities[c.name]) {
           let Capability = _.find(this._capabilities, a => a.NAME === c.name);
-          if(!Capability){
+          if (!Capability) {
             throw new Error('unsupported capability: ' + c.name);
           }
-          let instance =  new Capability(toolbar);
+          let instance = new Capability(toolbar);
           this._activeCapabilities[c.name] = instance;
         }
 

@@ -1,26 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Observable} from './observable';
-import {Icon} from '../../tools/notepad/icon';
+import { Observable } from './observable';
+import { Icon } from '../../tools/notepad/icon';
 
 export const NAME = 'notepad';
 
 export class Notepad {
-  constructor(toolbar){
-   this.name = NAME;
-   this.toolbar = toolbar; 
-   this._enabled = new Observable(false);
-   this._holder = this._render();
+  constructor(toolbar) {
+    this.name = NAME;
+    this.toolbar = toolbar;
+    this._enabled = new Observable(false);
+    this._holder = this._render();
 
-   this._enabled.onUpdate((enabled) => {
-    let re = React.createElement(Icon, { disabled: enabled });
-    ReactDOM.render(re, this._holder);
-   });
+    this._enabled.onUpdate((enabled) => {
+      let re = React.createElement(Icon, { disabled: enabled });
+      ReactDOM.render(re, this._holder);
+    });
 
-   this._enabled.update(false, true);
+    this._enabled.update(false, true);
   }
 
-  _render(){
+  _render() {
     let span = document.createElement('span');
     span.setAttribute('data-capability', NAME);
     this.toolbar.appendChild(span);
