@@ -14,8 +14,7 @@ import { ToolbarSeparator } from 'material-ui/Toolbar';
 import SelectField from 'material-ui/SelectField';
 import map from 'lodash/map';
 import MenuItem from 'material-ui/MenuItem';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-// injectTapEventPlugin();
+import tapEventPlugin from 'react-tap-event-plugin';
 
 export default class DemoMainToolbar extends HTMLElement {
 
@@ -24,28 +23,39 @@ export default class DemoMainToolbar extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  set env(e){
+  set env(e) {
     this._env = e;
     this._render();
   }
 
-  _render(){
-    
+  _render() {
+    //TODO: this needs to be called - but you're only supposed to call it once for an app.
+    //My suspicion is because we have multiple react bundles .. each bundle needs to be initialised.
+    //Once we move to externals this won't be required.
+    try {
+      tapEventPlugin();
+      console.log('tapEventPlugin succeeded.');
+    } catch (e) {
+      console.log('tapEventPlugin failed.');
+    }
+
     let re = React.createElement(_MainToolbar, {
       view: this._env.mode,
       views: ['gather', 'view', 'evaluate'],
       onChange: (key, value) => {
         console.log('onChange: ', arguments);
 
-        if(key === 'view'){
+        if (key === 'view') {
           this._env.mode = value;
         } else {
           this._env[key] = value;
         }
 
-        this.dispatchEvent(new CustomEvent('envChanged', {bubbles: true, composed: true, detail: {
-          env: this._env
-        }}));
+        this.dispatchEvent(new CustomEvent('envChanged', {
+          bubbles: true, composed: true, detail: {
+            env: this._env
+          }
+        }));
       },
       onZoomIn: () => {
         let z = document.body.style.zoom || 1;
@@ -53,19 +63,20 @@ export default class DemoMainToolbar extends HTMLElement {
       },
       onZoomOut: () => {
         let z = document.body.style.zoom || 1;
-        document.body.style.zoom =  parseFloat(z) - 0.1;
-    }});
+        document.body.style.zoom = parseFloat(z) - 0.1;
+      }
+    });
 
     ReactDOM.render(re, this.shadowRoot);
   }
 
-  connectedCallback(){
-    this.dispatchEvent(new CustomEvent('pie.env-requested', {bubbles: true, composed: true}));
+  connectedCallback() {
+    this.dispatchEvent(new CustomEvent('pie.env-requested', { bubbles: true, composed: true }));
   }
 }
 
 class _MainToolbar extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -75,14 +86,14 @@ class _MainToolbar extends React.Component {
     };
   }
 
-  onViewChange(event, index, value){
+  onViewChange(event, index, value) {
     this.setState({ view: value });
     this.props.onChange('view', value);
-  } 
+  }
 
   render() {
     return <MuiThemeProvider>
-      <div style={{width: '100%'}}>
+      <div style={{ width: '100%' }}>
         <IconButton><Back /></IconButton>
         <IconButton><Forward /></IconButton>
         <IconButton><Save /></IconButton>
@@ -93,9 +104,9 @@ class _MainToolbar extends React.Component {
           value={this.state.view}
           onChange={this.onViewChange.bind(this)} />
 
-        <span style={{float: 'right'}}>
+        <span style={{ float: 'right' }}>
           <IconButton><BrandingWatermark /></IconButton>
-          <IconButton onClick={this.props.onZoomIn}><ZoomIn/></IconButton>
+          <IconButton onClick={this.props.onZoomIn}><ZoomIn /></IconButton>
           <IconButton onClick={this.props.onZoomOut}><ZoomOut /></IconButton>
         </span>
       </div>
