@@ -44,7 +44,7 @@ export default class LayoutHPane extends HTMLElement {
         width: 50%;
         background-color: var(--h-pane-bg-color, red);
         transition: all 400ms;
-        overflow: scroll;
+        overflow-y: auto;
       }
       
     </style> 

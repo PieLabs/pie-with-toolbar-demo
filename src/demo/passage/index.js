@@ -24,7 +24,7 @@ export default class Passage extends HTMLElement {
       .main-holder{
         flex-grow: 1.0;
         padding: 20px;
-        overflow: scroll;
+        overflow-y: auto;
       }
     </style>
     <div class="toolbar">

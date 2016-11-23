@@ -1,5 +1,11 @@
-// import tapEventPlugin from 'react-tap-event-plugin';
-// tapEventPlugin();
+import tapEventPlugin from 'react-tap-event-plugin';
+
+try {
+  tapEventPlugin();
+  console.log('tapEventPlugin succeeded.');
+} catch (e){
+  console.log('tapEventPlugin failed.');
+}
 
 import LayoutHPane from '../../src/layout/h-pane';
 customElements.define('layout-h-pane', LayoutHPane);

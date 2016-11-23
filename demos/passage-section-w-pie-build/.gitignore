@@ -4,3 +4,5 @@ entry.js
 package.json
 example.html
 controllers.js
+additional.bundle.js
+pie.js
