@@ -89,15 +89,15 @@
         "choices": [],
         "config": {
           "selectionUnit": "sentence",
-          "maxSelections": 1,
-          "passage": "<span class=\"cs-token\">Rachel cut out 8 stars in 6 minutes.</span> <span class=\"cs-token\"> Lovelle cut out 6 stars in 4 minutes.</span> <span class=\"cs-token\">Rachel cut out 4 more stars than Lovelle.</span> <span class=\"cs-token\">Lovelle and Rachel cut the same number of stars in 6 minutes.</span> ",
+          "maxSelections": 3,
+          "passage": "<span class=\"cs-token\">Our new home consisted of one bedroom, one bathroom, and one big room for everything else.</span><span class=\"cs-token\">A fireplace in the corner of the big room would be our sole source of heat in the winter.</span><span class=\"cs-token\"> A swamp box (cooler) would blow a breeze over a big damp pad to keep us cool all summer, or so my father said.</span> <span class=\"cs-token\">But it was early autumn that day, and the temperature was perfect in the shade of the oak tree. Our oak tree, I thought; I was settling in.</span><span class=\"cs-token\">Mom wiped a layer of grime off the kitchen counter and muttered about getting a bottle of bleach on our next trip into town.</span><span class=\"cs-token\">That was the beginning of an important lesson about living in the back of beyond: you don't just zip over to the local convenience store anytime you need something out here.</span> <span class=\"cs-token\">You have to make a careful list and check it twice so that you don't forget anything, because anywhere is a long way from here.</span><span class=\"cs-token\">On my first walk around the property, I saw two horned toads, a red-tailed hawk, and some deer tracks.</span><span class=\"cs-token\">I wondered what else I might find deeper and higher in the canyon.</span><span class=\"cs-token\">Dad told me the real estate agent had mentioned that coyotes, bobcats, mountain lions, rattlesnakes, and even bears roamed these hills.</span> <span class=\"cs-token\">To my surprise, I found I couldn\\u2019t wait to see them.</span><span class=\"cs-token\">All of them. I felt my feet taking root in the earth, claiming this place as home.</span>",
           "availability": "all",
           "label": ""
         }
       },
       "correctResponse": {
         "value": [
-          1
+          1,4,5
         ]
       },
       "title": "Select Evidence in Text",
@@ -105,14 +105,7 @@
       "allowPartialScoring": false,
       "partialScoring": [
         {}
-      ],
-      "feedback": {
-        "correctFeedbackType": "custom",
-        "partialFeedbackType": "none",
-        "incorrectFeedbackType": "custom",
-        "incorrectFeedback": "Lovelle cut out 6 stars in 4 minutes.",
-        "correctFeedback": "Well done!"
-      }
+      ]
     }
   ]
 }

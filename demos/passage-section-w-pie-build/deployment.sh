@@ -49,6 +49,7 @@ cp passage.html deployment/passage.html
 cp pie.js deployment/pie.js
 cp additional.bundle.js deployment/additional.bundle.js 
 cp controllers.js deployment/controllers.js 
+cp -r public deployment/public
 
 cd deployment 
 npm install 

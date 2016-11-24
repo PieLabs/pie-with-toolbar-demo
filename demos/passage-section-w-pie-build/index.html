@@ -56,52 +56,11 @@
     
   </style>
 <script type="text/javascript" src="./pie.js"></script>
-<script type="text/javascript" src="./controllers.js"></script>
+<!--
+  This is now bundled into additional.bundle.js
+  <script type="text/javascript" src="./controllers.js"></script>
+  -->
 <script type="text/javascript" src="./additional.bundle.js"></script>
-
-<script type="text/javascript">
-      window.pie = window.pie || {};
-      window.pie.env = {mode: 'gather'};
-      window.pie.model = {'pies':[{'id':'1','pie':{'name':'corespring-choice','version':'1.0.0','langs':['en-US']},'correctResponse':['3'],'feedback':{},'translations':{'default_locale':'en-US'},'model':{'prompt':'Which statement best expresses the theme of the text?','choiceMode':'radio','keyMode':'numbers','disabled':false,'choices':[{'label':'Home may be found in an unexpected place.','value':'1'},{'label':'Nature is the best educator of young children','value':'2'},{'label':'Turning your back on civilization is the only way to live.','value':'3'},{'label':'You must leave your past behind in order to find yourself','value':'4'}]}},{'id':'2','pie':{'name':'corespring-choice','version':'1.0.0','langs':['en-US']},'correctResponse':['4'],'feedback':{},'model':{'prompt':'Which sentence from the text best supports your answer in part A?','choiceMode':'radio','keyMode':'numbers','disabled':false,'choices':[{'label':'"When I first saw where we were going to live, I vacillated between feeling terrified and excited."','value':'1'},{'label':'"On my first walk around the property, I saw two horned toads, a red-tailed hawk, and some deer tracks."','value':'2'},{'label':'"With no street lights timed to turn on at sunset, when night came it was darker than anything I had ever experienced."','value':'3'},{'label':'"I\'ve been going to school in the valley, but I feel most at home up here with my wild fellow canyon dwellers."','value':'4'}]}}]};
-      window.pie.session = [];
-      let envControl, player; 
-
-      let handleEnvChanged = (e) => {
-        if(player){
-          player.env = e;
-        }
-      }
-
-      document.addEventListener('pie.env-requested', (event) => {
-        envControl = event.target;
-        envControl.env = window.pie.env;
-        envControl.addEventListener('envChanged', (event) => {
-          handleEnvChanged(event.detail.env);
-        });
-      });
-      
-      document.addEventListener('pie.player-ready', function(event){
-        player = event.target;
-	
-	let uid = 'bc9f2ec7a61de294539edb5c382d17de';
-
-        var pieController = new pie.Controller(window.pie.model, window[uid]);
-        
-        player.controller = pieController;
-        player.env = window.pie.env;
-        player.session = window.pie.session;
-        
-        
-        pieController.getLanguages().then(function(l) {
-          if(envControl){
-            envControl.languages = l;
-          }
-        });
-      
-      });
-      
-    </script>
-
 
 </head>
 
@@ -126,6 +85,7 @@
           <div slot="tools">
             <tools-notepad></tools-notepad>
           </div>
+          <br/>
           <p>The reader can conclude that the narrator is open to living at "the back of beyond" and accepts her new life there.
             Click three sentences that support this conclusion.</p>
           <corespring-select-text-ng15 pie-id="3"></corespring-select-text-ng15>
