@@ -13,6 +13,9 @@ customElements.define('layout-h-pane', LayoutHPane);
 import Passage from '../../src/demo/passage/index';
 customElements.define('demo-passage', Passage);
 
+import TextToSpeechButton from '../../src/tools/text-to-speech/button';
+customElements.define('text-to-speech-button', TextToSpeechButton);
+
 import ExpandButton from '../../src/demo/passage/expand-button';
 customElements.define('expand-button', ExpandButton);
 

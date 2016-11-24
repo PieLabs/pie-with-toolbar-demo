@@ -82,8 +82,10 @@
       
       document.addEventListener('pie.player-ready', function(event){
         player = event.target;
+	
+	let uid = 'bc9f2ec7a61de294539edb5c382d17de';
 
-        var pieController = new pie.Controller(window.pie.model, window['181d1e409e06ff77c4dbc915b46f3051']);
+        var pieController = new pie.Controller(window.pie.model, window[uid]);
         
         player.controller = pieController;
         player.env = window.pie.env;
