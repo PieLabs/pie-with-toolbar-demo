@@ -24,7 +24,12 @@ customElements.define('demo-main-toolbar', DemoMainToolbar);
 
 import TextToSpeechButton from '../../src/tools/text-to-speech/button';
 customElements.define('text-to-speech-button', TextToSpeechButton);
- 
+
+import GlossaryEntry from '../../src/tools/glossary/entry';
+customElements.define('glossary-entry', GlossaryEntry);
+
+import GlossaryDictionary from '../../src/tools/glossary/dictionary';
+
 import * as choiceController from 'corespring-choice/controller/src/index';
 
 import _ from 'lodash'
@@ -41,8 +46,18 @@ document.addEventListener('pie.register', (event) => {
     });
 });
 
+
+let dictionary = new GlossaryDictionary({
+  civilization: 'the stage of human social development and organization which is considered most advanced.'
+});
+
+document.addEventListener(GlossaryDictionary.ENTRY_EVENT, dictionary.handleEntry.bind(dictionary));
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log('dom content loaded');
+
+  let dictionary = document.querySelector('glossary-dictionary');
+
 });
 
 let envControl;
