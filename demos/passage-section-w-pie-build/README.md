@@ -13,13 +13,15 @@ Both bundles are loaded on to the page and all work together.
 
 # note: need --keepBuildAssets until [this issue](https://github.com/PieLabs/pie-cli/issues/56) is fixed.
 pie pack-question --keepBuildAssets --buildExample 
-webpack --config additional.bundle.js
+../../node_modules/.bin/webpack --config additional.webpack.config.js
+# or: 
+../../node_modules/.bin/webpack-dev-server --hot --inline --config additional.webpack.config.js
 ```
 
 At this point you'll have the following files: 
 
 * `pie.js`
-* `controllers.js`
+* ~~`controllers.js`~~ - no longer needed, it is now bundled in `additional.entry.js`
 * `additional.bundle.js`
 
 These are assembled in `index.html`.
@@ -35,6 +37,8 @@ static . # or whatever static file server you want...
 ## deploy
 
 For this you'll need a heroku app you have write/deploy access to...
+
+Also be sure to build as described above.
 
 ```shell
 ./deployment.sh pie-toolbar-demo
