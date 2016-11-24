@@ -1,3 +1,4 @@
 {
-  "corespring-choice" : "PieElements/corespring-choice#tool-demo"
+  "corespring-choice" : "PieElements/corespring-choice#tool-demo",
+  "corespring-select-text-ng15": "PieLabs/corespring-select-text-ng15#master"
 }

@@ -78,6 +78,41 @@
           }
         ]
       }
+    },
+    {
+      "id": "3",
+      "pie": {
+        "name": "corespring-select-text-ng15",
+        "version": "1.0.0"
+      },
+      "model": {
+        "choices": [],
+        "config": {
+          "selectionUnit": "sentence",
+          "maxSelections": 1,
+          "passage": "<span class=\"cs-token\">Rachel cut out 8 stars in 6 minutes.</span> <span class=\"cs-token\"> Lovelle cut out 6 stars in 4 minutes.</span> <span class=\"cs-token\">Rachel cut out 4 more stars than Lovelle.</span> <span class=\"cs-token\">Lovelle and Rachel cut the same number of stars in 6 minutes.</span> ",
+          "availability": "all",
+          "label": ""
+        }
+      },
+      "correctResponse": {
+        "value": [
+          1
+        ]
+      },
+      "title": "Select Evidence in Text",
+      "weight": 1,
+      "allowPartialScoring": false,
+      "partialScoring": [
+        {}
+      ],
+      "feedback": {
+        "correctFeedbackType": "custom",
+        "partialFeedbackType": "none",
+        "incorrectFeedbackType": "custom",
+        "incorrectFeedback": "Lovelle cut out 6 stars in 4 minutes.",
+        "correctFeedback": "Well done!"
+      }
     }
   ]
 }
