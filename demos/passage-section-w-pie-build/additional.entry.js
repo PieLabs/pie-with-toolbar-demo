@@ -29,6 +29,12 @@ customElements.define('tools-notepad', Notepad);
 import DemoMainToolbar from '../../src/demo/main-toolbar/index';
 customElements.define('demo-main-toolbar', DemoMainToolbar);
 
+import Masking from '../../src/tools/masking/index';
+customElements.define('tools-masking', Masking);
+
+import Mask from '../../src/tools/masking/mask';
+customElements.define('tools-mask', Mask);
+
 const controllerModule = require('./controllers');
 
 window.pie = window.pie || {};
