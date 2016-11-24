@@ -42,6 +42,15 @@ export default class DemoMainToolbar extends HTMLElement {
     let re = React.createElement(_MainToolbar, {
       view: this._env.mode,
       views: ['gather', 'view', 'evaluate'],
+      toggleMasking: (enabled) => {
+        console.log('[toggleMasking]: ', enabled);
+        this.dispatchEvent(new CustomEvent('masking', {
+          bubbles: true,
+          detail: {
+            enabled: enabled
+          }
+        }))
+      },
       onChange: (key, value) => {
         console.log('onChange: ', arguments);
 
@@ -82,7 +91,8 @@ class _MainToolbar extends React.Component {
     this.state = {
       view: this.props.view || 'gather',
       lang: this.props.lang || 'en-US',
-      colorContrast: this.props.colorContrast || 'black_on_white'
+      colorContrast: this.props.colorContrast || 'black_on_white',
+      maskingEnabled: false
     };
   }
 
@@ -90,6 +100,13 @@ class _MainToolbar extends React.Component {
     this.setState({ view: value });
     this.props.onChange('view', value);
   }
+
+  toggleMasking() {
+    this.setState({ maskingEnabled: !this.state.maskingEnabled }, () => {
+      this.props.toggleMasking(this.state.maskingEnabled);
+    });
+  }
+
 
   render() {
     return <MuiThemeProvider>
@@ -105,7 +122,11 @@ class _MainToolbar extends React.Component {
           onChange={this.onViewChange.bind(this)} />
 
         <span style={{ float: 'right' }}>
-          <IconButton><BrandingWatermark /></IconButton>
+          <IconButton
+            iconStyle={this.state.maskingEnabled ? { color: 'lightblue' } : {}}
+            onClick={this.toggleMasking.bind(this)}>
+            <BrandingWatermark />
+          </IconButton>
           <IconButton onClick={this.props.onZoomIn}><ZoomIn /></IconButton>
           <IconButton onClick={this.props.onZoomOut}><ZoomOut /></IconButton>
         </span>

@@ -24,7 +24,13 @@ customElements.define('demo-main-toolbar', DemoMainToolbar);
 
 import TextToSpeechButton from '../../src/tools/text-to-speech/button';
 customElements.define('text-to-speech-button', TextToSpeechButton);
- 
+
+import Masking from '../../src/tools/masking/index';
+customElements.define('tools-masking', Masking);
+
+import Mask from '../../src/tools/masking/mask';
+customElements.define('tools-mask', Mask);
+
 import * as choiceController from 'corespring-choice/controller/src/index';
 
 import _ from 'lodash'
@@ -48,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let envControl;
 
 window.pie = window.pie || {};
-window.pie.env = { mode: 'gather'}
+window.pie.env = { mode: 'gather' }
 
 document.addEventListener('pie.env-requested', (event) => {
   envControl = event.target;
