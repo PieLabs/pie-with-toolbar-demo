@@ -22,6 +22,9 @@ customElements.define('tools-notepad', Notepad);
 import DemoMainToolbar from '../../src/demo/main-toolbar/index';
 customElements.define('demo-main-toolbar', DemoMainToolbar);
 
+import TextToSpeechButton from '../../src/tools/text-to-speech/button';
+customElements.define('text-to-speech-button', TextToSpeechButton);
+ 
 import * as choiceController from 'corespring-choice/controller/src/index';
 
 import _ from 'lodash'

@@ -18,7 +18,7 @@ export default class Passage extends HTMLElement {
         text-align: right;
         padding: 0;
         margin: 0;
-        flex-grow: 0.1;
+        flex-grow: 40px;
       }
 
       .main-holder{
@@ -28,9 +28,10 @@ export default class Passage extends HTMLElement {
       }
     </style>
     <div class="toolbar">
+      <text-to-speech-button></text-to-speech-button> 
       <expand-button></expand-button>
     </div>
-    <div class="main-holder">
+    <div class="main-holder" text-to-speech>
       <slot id="main">Loading...</slot>
     </div>
     `;
@@ -44,6 +45,7 @@ export default class Passage extends HTMLElement {
       if (xhr.status == 200) {
         let main = this.shadowRoot.querySelector('#main');
         main.innerHTML = xhr.responseText;
+        this.shadowRoot.querySelector('text-to-speech-button').target = main;
       } else {
         console.error(xhr.status);
       }
