@@ -97,7 +97,9 @@
       },
       "correctResponse": {
         "value": [
-          1,4,5
+          1,
+          4,
+          5
         ]
       },
       "title": "Select Evidence in Text",
@@ -106,6 +108,14 @@
       "partialScoring": [
         {}
       ]
+    },
+    {
+      "id": "4",
+      "pie": {
+        "name": "corespring-extended-text-entry",
+        "version": "1.0.0"
+      },
+      "model": {}
     }
   ]
 }

@@ -35,7 +35,7 @@ import * as choiceController from 'corespring-choice/controller/src/index';
 
 import _ from 'lodash'
 
-let config = require('./config.json');
+let config = require('../passage-section-w-pie-build/config.json');
 
 document.addEventListener('pie.register', (event) => {
   let id = event.target.getAttribute('pie-id');
