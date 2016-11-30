@@ -7,6 +7,15 @@ try {
   console.log('tapEventPlugin failed.');
 }
 
+import FloatingPanel from '../../src/layout/floating-panel';
+customElements.define('layout-floating-panel', FloatingPanel);
+
+import Draggable from '../../src/layout/draggable';
+customElements.define('layout-draggable', Draggable);
+
+import Calculator from '../../src/tools/calculator';
+customElements.define('tools-calculator', Calculator);
+
 import LayoutHPane from '../../src/layout/h-pane';
 customElements.define('layout-h-pane', LayoutHPane);
 
@@ -39,7 +48,7 @@ const controllerModule = require('./controllers');
 
 window.pie = window.pie || {};
 window.pie.env = { mode: 'gather' };
-window.pie.model = require('./config.json'); 
+window.pie.model = require('./config.json');
 
 window.pie.session = [];
 
@@ -57,6 +66,26 @@ document.addEventListener('pie.env-requested', (event) => {
   envControl.addEventListener('envChanged', (event) => {
     handleEnvChanged(event.detail.env);
   });
+});
+
+document.addEventListener('launch-calculator', () => {
+
+  let existing = document.querySelector('#calculator-holder');
+
+  if (existing) {
+    return;
+  }
+
+  let holder = document.createElement('div');
+  holder.innerHTML = `
+    <layout-floating-panel title="Calculator">
+      <div style="width: 400px; height: 600px;">
+        <tools-calculator></tools-calculator>
+      </div>
+    </layout-floating-panel>`;
+
+  holder.setAttribute('id', 'calculator-holder');
+  document.body.appendChild(holder);
 });
 
 document.addEventListener('pie.player-ready', function (event) {

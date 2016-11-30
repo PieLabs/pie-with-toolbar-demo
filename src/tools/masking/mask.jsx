@@ -20,6 +20,12 @@ export default class Mask extends HTMLElement {
     this._render();
   }
 
+  resize(d) {
+    this._maskData.w = d.w;
+    this._maskData.h = d.h;
+    this._render();
+  }
+
   _render() {
 
     if (this._maskData && this._relativeTo) {
@@ -30,7 +36,6 @@ export default class Mask extends HTMLElement {
         x: this._maskData.x,
         y: this._maskData.y,
         remove: () => {
-          console.log('Remove!');
           this.dispatchEvent(new CustomEvent('remove', { bubbles: true, composed: true }));
         }
       });

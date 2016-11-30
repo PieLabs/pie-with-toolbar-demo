@@ -9,6 +9,7 @@ import Save from 'material-ui/svg-icons/content/save';
 import Pause from 'material-ui/svg-icons/av/pause-circle-outline';
 import ZoomIn from 'material-ui/svg-icons/action/zoom-in';
 import ZoomOut from 'material-ui/svg-icons/action/zoom-out';
+import ViewComfy from 'material-ui/svg-icons/image/view-comfy';
 import BrandingWatermark from 'material-ui/svg-icons/av/branding-watermark';
 import { ToolbarSeparator } from 'material-ui/Toolbar';
 import SelectField from 'material-ui/SelectField';
@@ -73,6 +74,10 @@ export default class DemoMainToolbar extends HTMLElement {
       onZoomOut: () => {
         let z = document.body.style.zoom || 1;
         document.body.style.zoom = parseFloat(z) - 0.1;
+      },
+      onLaunchCalculator: () => {
+        let event = new CustomEvent('launch-calculator', { bubbles: true });
+        this.dispatchEvent(event);
       }
     });
 
@@ -122,6 +127,9 @@ class _MainToolbar extends React.Component {
           onChange={this.onViewChange.bind(this)} />
 
         <span style={{ float: 'right' }}>
+
+          <IconButton
+            onClick={this.props.onLaunchCalculator}><ViewComfy /></IconButton>
           <IconButton
             iconStyle={this.state.maskingEnabled ? { color: 'lightblue' } : {}}
             onClick={this.toggleMasking.bind(this)}>
