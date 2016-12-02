@@ -1,38 +1,23 @@
 # with pie build
 
-This demo has 2 builds: 
-
-1. a pie build 
-2. a second build for all the rest
-
-Both bundles are loaded on to the page and all work together.
-
-## Run
+## Build 
 
 ```shell 
+pie pack-question  --keepBuildAssets --log-level silly --questionMarkupFile=pie.html
 
-# note: need --keepBuildAssets until [this issue](https://github.com/PieLabs/pie-cli/issues/56) is fixed.
-pie pack-question --keepBuildAssets --buildExample 
-../../node_modules/.bin/webpack --config additional.webpack.config.js
-# or: 
-../../node_modules/.bin/webpack-dev-server --hot --inline --config additional.webpack.config.js
 ```
 
 At this point you'll have the following files: 
 
 * `pie.js`
-* ~~`controllers.js`~~ - no longer needed, it is now bundled in `additional.entry.js`
-* `additional.bundle.js`
+* `controllers.js` - no longer needed, it is now bundled in `additional.entry.js`
 
-These are assembled in `index.html`.
+These are added to `example.html`.
 
 ```shell
 static . # or whatever static file server you want...
 # the go to that server..
 ```
-
-> the `pack-question` build uses a uid to place the controllers within the dom. This uid is logged at the end of the pack command. make sure that this id is set correctly in `index.html`
-
 
 ## deploy
 
