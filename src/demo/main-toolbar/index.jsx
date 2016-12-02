@@ -24,11 +24,6 @@ export default class DemoMainToolbar extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  set env(e) {
-    this._env = e;
-    this._render();
-  }
-
   _render() {
     //TODO: this needs to be called - but you're only supposed to call it once for an app.
     //My suspicion is because we have multiple react bundles .. each bundle needs to be initialised.
@@ -41,8 +36,6 @@ export default class DemoMainToolbar extends HTMLElement {
     }
 
     let re = React.createElement(_MainToolbar, {
-      view: this._env.mode,
-      views: ['gather', 'view', 'evaluate'],
       toggleMasking: (enabled) => {
         console.log('[toggleMasking]: ', enabled);
         this.dispatchEvent(new CustomEvent('masking', {
@@ -85,7 +78,8 @@ export default class DemoMainToolbar extends HTMLElement {
   }
 
   connectedCallback() {
-    this.dispatchEvent(new CustomEvent('pie.env-requested', { bubbles: true, composed: true }));
+    // this.dispatchEvent(new CustomEvent('pie.env-requested', { bubbles: true, composed: true }));
+    this._render();
   }
 }
 
@@ -99,11 +93,6 @@ class _MainToolbar extends React.Component {
       colorContrast: this.props.colorContrast || 'black_on_white',
       maskingEnabled: false
     };
-  }
-
-  onViewChange(event, index, value) {
-    this.setState({ view: value });
-    this.props.onChange('view', value);
   }
 
   toggleMasking() {
@@ -120,11 +109,6 @@ class _MainToolbar extends React.Component {
         <IconButton><Forward /></IconButton>
         <IconButton><Save /></IconButton>
         <IconButton><Pause /></IconButton>
-        <ChoiceGroup
-          label={'view'}
-          options={this.props.views}
-          value={this.state.view}
-          onChange={this.onViewChange.bind(this)} />
 
         <span style={{ float: 'right' }}>
 
