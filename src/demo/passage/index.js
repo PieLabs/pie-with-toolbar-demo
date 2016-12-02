@@ -37,19 +37,28 @@ export default class Passage extends HTMLElement {
     `;
   }
 
+  set passageUrl(u) {
+    this._passageUrl = u;
+    this._loadPassage();
+  }
+
+  _loadPassage() {
+    if (this._passageUrl) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', this._passageUrl, true);
+      xhr.onload = (e) => {
+        if (xhr.status == 200) {
+          let main = this.shadowRoot.querySelector('#main');
+          main.innerHTML = xhr.responseText;
+          this.shadowRoot.querySelector('text-to-speech-button').target = main;
+        } else {
+          console.error(xhr.status);
+        }
+      };
+      xhr.send();
+    }
+  }
+
   connectedCallback() {
-    let url = this.getAttribute('passage-url');
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.onload = (e) => {
-      if (xhr.status == 200) {
-        let main = this.shadowRoot.querySelector('#main');
-        main.innerHTML = xhr.responseText;
-        this.shadowRoot.querySelector('text-to-speech-button').target = main;
-      } else {
-        console.error(xhr.status);
-      }
-    };
-    xhr.send();
   }
 }

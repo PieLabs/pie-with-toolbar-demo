@@ -17,6 +17,11 @@
   },
   "models": [
     {
+      "id": "passage-one",
+      "element": "demo-passage",
+      "passageUrl": "passage.html"
+    },
+    {
       "id": "1",
       "element": "corespring-choice",
       "correctResponse": [
