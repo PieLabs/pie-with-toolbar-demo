@@ -44,7 +44,7 @@ EOM
 echo "$SERVER" >> deployment/server.js 
 
 
-cp index.html deployment/index.html
+cp example.html deployment/index.html
 cp passage.html deployment/passage.html
 cp pie.js deployment/pie.js
 cp controllers.js deployment/controllers.js 
