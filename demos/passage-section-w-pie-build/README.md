@@ -2,8 +2,12 @@
 
 ## Build 
 
+> Note: you must be running `pie-cli#issues/63-config-changes` for the below to work.
+
 ```shell 
-pie pack-question  --keepBuildAssets --log-level silly --questionMarkupFile=pie.html
+
+export PIE_BRANCH=feature/new-config-structure # this is needed until we've merged
+pie pack --keepBuildAssets --log-level debug --questionMarkupFile=pie.html
 
 ```
 
