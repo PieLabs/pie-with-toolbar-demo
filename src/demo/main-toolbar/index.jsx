@@ -105,10 +105,6 @@ class _MainToolbar extends React.Component {
   render() {
     return <MuiThemeProvider>
       <div style={{ width: '100%' }}>
-        <IconButton><Back /></IconButton>
-        <IconButton><Forward /></IconButton>
-        <IconButton><Save /></IconButton>
-        <IconButton><Pause /></IconButton>
 
         <span style={{ float: 'right' }}>
 
