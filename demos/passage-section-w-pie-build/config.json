@@ -1,4 +1,5 @@
 {
+  "langs" : ["en-US"],
   "elements": {
     "corespring-choice": "PieElements/corespring-choice#tool-demo",
     "corespring-extended-text-entry": "PieLabs/corespring-extended-text-entry#develop",

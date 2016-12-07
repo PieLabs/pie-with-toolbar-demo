@@ -6,7 +6,6 @@
 
 ```shell 
 
-export PIE_BRANCH=feature/new-config-structure # this is needed until we've merged
 pie pack --keepBuildAssets --log-level debug --questionMarkupFile=pie.html
 
 ```
@@ -20,7 +19,7 @@ These are added to `example.html`.
 
 ```shell
 static . # or whatever static file server you want...
-# the go to that server..
+# the go to that server.. and log `/example.html`
 ```
 
 ## deploy
