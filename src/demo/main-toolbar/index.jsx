@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ContentCreate from 'material-ui/svg-icons/content/create';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import IconButton from 'material-ui/IconButton'
+import IconButton from 'material-ui/IconButton';
 import Back from 'material-ui/svg-icons/navigation/arrow-back';
 import Forward from 'material-ui/svg-icons/navigation/arrow-forward';
 import Save from 'material-ui/svg-icons/content/save';
 import Pause from 'material-ui/svg-icons/av/pause-circle-outline';
 import ZoomIn from 'material-ui/svg-icons/action/zoom-in';
 import ZoomOut from 'material-ui/svg-icons/action/zoom-out';
+import Highlight from 'material-ui/svg-icons/editor/border-color';
 import ViewComfy from 'material-ui/svg-icons/image/view-comfy';
 import BrandingWatermark from 'material-ui/svg-icons/av/branding-watermark';
 import { ToolbarSeparator } from 'material-ui/Toolbar';
@@ -16,6 +17,7 @@ import SelectField from 'material-ui/SelectField';
 import map from 'lodash/map';
 import MenuItem from 'material-ui/MenuItem';
 import tapEventPlugin from 'react-tap-event-plugin';
+import Highlighter from './../../tools/highlighter';
 
 export default class DemoMainToolbar extends HTMLElement {
 
@@ -71,6 +73,10 @@ export default class DemoMainToolbar extends HTMLElement {
       onLaunchCalculator: () => {
         let event = new CustomEvent('launch-calculator', { bubbles: true });
         this.dispatchEvent(event);
+      },
+      onToggleHighlight: () => {
+        let event = new CustomEvent('toggle-highlight', { bubbles: true });
+        this.dispatchEvent(event);
       }
     });
 
@@ -93,6 +99,7 @@ class _MainToolbar extends React.Component {
       colorContrast: this.props.colorContrast || 'black_on_white',
       maskingEnabled: false
     };
+    new Highlighter();
   }
 
   toggleMasking() {
@@ -111,7 +118,8 @@ class _MainToolbar extends React.Component {
         <IconButton><Pause /></IconButton>
 
         <span style={{ float: 'right' }}>
-
+          <IconButton
+            onClick={this.props.onToggleHighlight}><Highlight /></IconButton>
           <IconButton
             onClick={this.props.onLaunchCalculator}><ViewComfy /></IconButton>
           <IconButton

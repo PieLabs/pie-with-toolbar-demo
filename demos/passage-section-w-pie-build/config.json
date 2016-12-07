@@ -4,6 +4,7 @@
     "corespring-extended-text-entry": "PieLabs/corespring-extended-text-entry#develop",
     "layout-floating-panel": "../../src/layout/floating-panel.js",
     "tools-calculator": "../../src/tools/calculator/index.js",
+    "hight-lighter": "../../src/tools/highlighter/index.jsx",
     "tools-calculator-launcher": "../../src/tools/calculator/launcher.js",
     "layout-h-pane": "../../src/layout/h-pane.js",
     "demo-passage": "../../src/demo/passage/index.js",

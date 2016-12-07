@@ -89,6 +89,10 @@ export default class LayoutHPane extends HTMLElement {
     }));
   }
 
+  selection() {
+    return this.querySelector('demo-passage').selection();
+  }
+
   get expanded() {
     return this.shadowRoot.querySelector('.left-pane').className === 'left-pane expanded';
   }

@@ -61,4 +61,9 @@ export default class Passage extends HTMLElement {
 
   connectedCallback() {
   }
+
+  selection() {
+    return this.shadowRoot.getSelection();
+  }
+
 }
