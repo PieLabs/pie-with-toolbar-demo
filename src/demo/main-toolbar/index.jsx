@@ -107,7 +107,6 @@ class _MainToolbar extends React.Component {
       <div style={{ width: '100%' }}>
 
         <span style={{ float: 'right' }}>
-
           <IconButton
             onClick={this.props.onLaunchCalculator}><ViewComfy /></IconButton>
           <IconButton

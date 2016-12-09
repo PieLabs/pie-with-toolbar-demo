@@ -10,6 +10,8 @@
     "demo-passage": "../../src/demo/passage/index.js",
     "expand-button": "../../src/demo/passage/expand-button.jsx",
     "text-to-speech-button": "../../src/tools/text-to-speech/button.jsx",
+    "asl-button": "../../src/tools/asl/button.jsx",
+    "asl-content": "../../src/tools/asl/content.jsx",
     "demo-section": "../../src/demo/section/index.js",
     "tools-notepad": "../../src/tools/notepad/index.jsx",
     "demo-main-toolbar": "../../src/demo/main-toolbar/index.jsx",

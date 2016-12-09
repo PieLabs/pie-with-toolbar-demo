@@ -28,10 +28,12 @@ export default class Passage extends HTMLElement {
       }
     </style>
     <div class="toolbar">
+      <asl-button src="passage-asl.webm"></asl-button>
       <text-to-speech-button></text-to-speech-button> 
       <expand-button></expand-button>
     </div>
     <div class="main-holder" text-to-speech>
+      <asl-content src="passage-asl.webm"></asl-content>
       <slot id="main">Loading...</slot>
     </div>
     `;
