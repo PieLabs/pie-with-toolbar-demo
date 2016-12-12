@@ -24,7 +24,6 @@ export default class Masking extends HTMLElement {
   }
 
   addListeners() {
-    console.log('!!addListeners...');
     let node = this._targetNode;
     let armed = false;
 
@@ -32,36 +31,21 @@ export default class Masking extends HTMLElement {
       if (!this._enabled) {
         return;
       }
-
-      if (this._maskBeingCreated) {
-        throw new Error('A mask is already being created');
-      }
-
-      let m = { x: event.clientX, y: event.clientY, w: 0, h: 0 }
-      this._maskBeingCreated = this._addMask(m);
-      this._downEvent = event;
-    });
-
-    node.addEventListener('mousemove', (event) => {
-
-      console.log('mouse move');
-      if (!this._enabled) {
-        return;
-      }
-
-      if (this._maskBeingCreated && this._downEvent) {
-        let w = Math.max(0, this._downEvent.clientX - event.clientX);
-        let h = Math.max(0, this._downEvent.clientY - event.clientY);
-        this._maskBeingCreated.resize({ w: w, h: h });
-      }
+      armed = true;
     });
 
     node.addEventListener('mouseup', (event) => {
       if (!this._enabled) {
         return;
       }
-      this._maskBeingCreated = null;
-      this._downEvent = null;
+      console.log('[masking] mouseup')
+
+      if (armed) {
+        let m = { x: event.clientX, y: event.clientY, w: 50, h: 50 };
+        this._addMask(m);
+      }
+
+      armed = false;
     });
   }
 

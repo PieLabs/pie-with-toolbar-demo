@@ -110,9 +110,7 @@ export default class FloatingPanel extends HTMLElement {
     let closeIcon = this.shadowRoot.querySelector('.close-icon');
 
     closeIcon.addEventListener('click', (event) => {
-      //TODO - should dispatch an event and let the close happen elsewhere.
-      let holder = document.querySelector('#calculator-holder');
-      holder.parentNode.removeChild(holder);
+      this.dispatchEvent(new CustomEvent('close-panel', { bubbles: true, composed: true }));
     });
 
   }

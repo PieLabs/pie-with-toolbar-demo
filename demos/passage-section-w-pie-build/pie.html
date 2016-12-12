@@ -1,27 +1,96 @@
-<demo-main-toolbar></demo-main-toolbar>
-<layout-h-pane class="h-pane">
-  <demo-passage slot="left" passage-url="passage.html"></demo-passage>
-  <div slot="right">
-    <demo-section key="1">
-      <div slot="tools">
-        <tools-notepad></tools-notepad>
-      </div>
-      <p>The following question has two parts. First, answer part A. Then, answer part B.</p>
-      <div class="part">Part A</div>
-      <corespring-choice pie-id="1"></corespring-choice>
-      <div class="part">Part B</div>
-      <corespring-choice pie-id="2"></corespring-choice>
-    </demo-section>
+<style>
 
-    <demo-section key="2">
-      <div slot="tools">
-        <tools-notepad></tools-notepad>
-      </div>
-      <p>The reader can conclude that the narrator is open to living at "the back of beyond" and accepts her new life there.
-        Click three sentences that support this conclusion.</p>
-      <corespring-select-text-ng15 pie-id="3"></corespring-select-text-ng15>
-      <p>What is the author's message about living with nature? Use details from the text to support your answer</p>
-      <corespring-extended-text-entry pie-id="4"></corespring-extended-text-entry>
-    </demo-section>
+    :root{ 
+      --main-bg: rgba(80,200,232, 0.3);
+      --toolbar-height: 48px;
+      --control-panel-height: 72px;
+    }
+
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    demo-section {
+      /*--section-border-color: blue;*/
+    }
+
+    layout-h-pane{
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: calc(var(--toolbar-height) + var(--control-panel-height) + 0px); 
+    }
+
+    demo-main-toolbar{
+      position: absolute;
+      border-top: solid 1px rgba(0,0,0,0.2);
+      z-index: 2;
+      left: 0;
+      top: var(--control-panel-height);
+      right: 0;
+      height: var(--toolbar-height);
+      border-bottom: solid 1px rgba(0,0,0,0.2);
+      box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.1);
+    }
+
+    demo-passage{
+      height: 100%;
+    }
+
+    .part{
+      background-color: var(--main-bg, lightblue);
+      border-bottom: solid 1px rgba(0,0,0, 0.2);
+      font-size: 13px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      padding-left: 10px;
+    }
+    
+</style>
+
+
+<tools-calculator-launcher></tools-calculator-launcher>
+
+
+<demo-main-toolbar></demo-main-toolbar>
+<tools-masking target-id="h-pane"></tools-masking>
+<layout-h-pane class="h-pane" id="h-pane">
+  <demo-passage data-id="passage-one" slot="left"></demo-passage>
+  <div slot="right">
+    <pie-player>
+      <demo-section key="1">
+        <div slot="tools">
+          <tools-notepad></tools-notepad>
+        </div>
+        <br/>
+        <p>The following question has two parts. First, answer part A. Then, answer part B.</p>
+        <div class="part">Part A</div>
+        <corespring-choice pie-id="1"></corespring-choice>
+        <div class="part">Part B</div>
+        <corespring-choice pie-id="2"></corespring-choice>
+      </demo-section>
+
+      <demo-section key="2">
+        <div slot="tools">
+          <tools-notepad></tools-notepad>
+        </div>
+        <br/>
+        <p>The reader can conclude that the narrator is open to living at "the back of beyond" and accepts her new life there.
+          Click three sentences that support this conclusion.</p>
+        <!-- 
+            Note: this element causes styling havoc when included.
+            <corespring-select-text-ng15 pie-id="3"></corespring-select-text-ng15>
+          -->
+      </demo-section>
+
+      <demo-section key="3">
+        <br/>
+        <p>What is the author's message about living with nature? Use details from the text to support your answer</p>
+        <corespring-extended-text-entry pie-id="4"></corespring-extended-text-entry>
+      </demo-section>
+    </pie-player>
   </div>
 </layout-h-pane>
