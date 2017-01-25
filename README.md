@@ -6,17 +6,17 @@ A number of Custom Elements are defined that provide tools such as calculator th
 
 
 ```
----------------------------
-| toolbar                  |
----------------------------
-|           | section      |
-|  passage  | - - - - - - -| 
-|           |   interacion |      | 
-|           | - - - - - - -|
-|           | section      | 
-|           | - - - - - - -|
-|           |  interaction | 
-|           | - - - - - - -|
+----------------------------
+| toolbar                   |
+----------------------------
+|           | section       |
+|  passage  | - - - - - - - | 
+|           |   interaction |      
+|           | - - - - - - - |
+|           | section       | 
+|           | - - - - - - - |
+|           |  interaction  | 
+|           | - - - - - - - |
 --------------------------
 ```
 
