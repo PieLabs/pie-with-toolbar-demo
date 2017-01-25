@@ -31,6 +31,7 @@ npm install
 cd demo
 pie serve #will boot a serve with live reload
 ```
+> Note: If you have issues re-running `pie serve` try running a `pie clean` and then `pie serve` again. There's is an outstanding issue w/ running certain commands with a pre-existing `node_modules` dir.
 
 ## Notes
 
