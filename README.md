@@ -27,5 +27,7 @@ A demo app that uses pies and toolbars.
 ## Running 
 
 ```shell
-npm run server
+npm install
+cd demo
+pie serve #will boot a serve with live reload
 ```
