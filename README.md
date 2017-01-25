@@ -31,3 +31,7 @@ npm install
 cd demo
 pie serve #will boot a serve with live reload
 ```
+
+## Notes
+
+The src uses a combination of vanilla custom elements and some that render react internally. The decisions that drove this were just based on getting a demo up and running quickly. A developer may choose to use no framework or something else.
