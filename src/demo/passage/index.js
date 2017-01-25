@@ -1,3 +1,5 @@
+import AslToggle from '../../events/asl-toggle';
+
 export default class Passage extends HTMLElement {
 
   constructor() {
@@ -26,8 +28,14 @@ export default class Passage extends HTMLElement {
         padding: 20px;
         overflow-y: auto;
       }
+
+      asl-button, .asl-text{
+        position: relative;
+        top: -6px;
+      }
     </style>
     <div class="toolbar">
+      <span class="asl-text">ASL</span>
       <asl-button src="passage-asl.webm"></asl-button>
       <text-to-speech-button></text-to-speech-button> 
       <expand-button></expand-button>
@@ -62,5 +70,8 @@ export default class Passage extends HTMLElement {
   }
 
   connectedCallback() {
+    this.shadowRoot.querySelector('asl-button').addEventListener(AslToggle.TYPE, (e) => {
+      this.shadowRoot.querySelector('asl-content').show(e.detail.src, e.detail.show);
+    });
   }
 }
