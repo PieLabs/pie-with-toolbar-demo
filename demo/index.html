@@ -1,54 +1,48 @@
 <style>
-
-    :root{ 
-      --main-bg: rgba(80,200,232, 0.3);
-      --toolbar-height: 48px;
-      --control-panel-height: 72px;
-    }
-
-    * {
-      font-family: 'Roboto', sans-serif;
-    }
-    
-    demo-section {
-      /*--section-border-color: blue;*/
-    }
-
-    layout-h-pane{
-      position: absolute;
-      width: 100%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: calc(var(--toolbar-height) + var(--control-panel-height) + 0px); 
-    }
-
-    demo-main-toolbar{
-      position: absolute;
-      border-top: solid 1px rgba(0,0,0,0.2);
-      z-index: 2;
-      left: 0;
-      top: var(--control-panel-height);
-      right: 0;
-      height: var(--toolbar-height);
-      border-bottom: solid 1px rgba(0,0,0,0.2);
-      box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.1);
-    }
-
-    demo-passage{
-      height: 100%;
-    }
-
-    .part{
-      background-color: var(--main-bg, lightblue);
-      border-bottom: solid 1px rgba(0,0,0, 0.2);
-      font-size: 13px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-      padding-left: 10px;
-    }
-    
+  :root {
+    --main-bg: rgba(80, 200, 232, 0.3);
+    --toolbar-height: 48px;
+    --control-panel-height: 98px;
+  }
+  
+  * {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  layout-h-pane {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: calc(var(--toolbar-height) + var(--control-panel-height) + 0px);
+  }
+  
+  demo-main-toolbar {
+    position: absolute;
+    border-top: solid 1px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    left: 0;
+    top: var(--control-panel-height);
+    right: 0;
+    height: var(--toolbar-height);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  demo-passage {
+    height: 100%;
+  }
+  
+  .part {
+    background-color: var(--main-bg, lightblue);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+    font-size: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }
 </style>
 
 

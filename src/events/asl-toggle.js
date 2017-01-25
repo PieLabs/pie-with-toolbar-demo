@@ -2,9 +2,9 @@ const EVENT_TYPE = 'asl-toggle';
 
 export default class AslToggle extends CustomEvent {
 
-  constructor(src) {
+  constructor(src, show) {
 
-    if(!src){
+    if (!src) {
       throw new Error('src can not be undefined')
     }
 
@@ -12,10 +12,11 @@ export default class AslToggle extends CustomEvent {
       bubbles: true,
       composed: true,
       detail: {
-        src: src 
+        src: src,
+        show: show
       }
     });
   }
 }
 
-AslToggle.eventType = EVENT_TYPE;
+AslToggle.TYPE = EVENT_TYPE;
