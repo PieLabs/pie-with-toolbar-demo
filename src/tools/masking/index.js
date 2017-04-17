@@ -14,13 +14,6 @@ export default class Masking extends HTMLElement {
     document.addEventListener('masking', (event) => {
       this.enabled = event.detail.enabled;
     });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      let id = this.getAttribute('target-id');
-      this._targetNode = document.querySelector(`#${id}`);
-      this.addListeners();
-    });
-
   }
 
   addListeners() {
@@ -50,6 +43,7 @@ export default class Masking extends HTMLElement {
   }
 
   _addMask(m) {
+
     this._masks.push(m);
     let mask = document.createElement('tools-mask');
     mask.maskData = m;
@@ -66,6 +60,13 @@ export default class Masking extends HTMLElement {
   }
 
   set enabled(e) {
+    if (this._initialized !== true) {
+      let id = this.getAttribute('target-id');
+      this._targetNode = document.querySelector(`#${id}`);
+      this.addListeners();
+      this._initialized = true;
+    }
+    
     console.log('enabled? ', e);
     this._enabled = e;
   }
