@@ -47,8 +47,8 @@ export default class Passage extends HTMLElement {
     `;
   }
 
-  set passageUrl(u) {
-    this._passageUrl = u;
+  set model(m) {
+    this._passageUrl = m.passageUrl;
     this._loadPassage();
   }
 

@@ -1,14 +1,14 @@
 <style>
-  :root {
+   :root {
     --main-bg: rgba(80, 200, 232, 0.3);
     --toolbar-height: 48px;
     --control-panel-height: 98px;
   }
-  
+
   * {
     font-family: 'Roboto', sans-serif;
   }
-  
+
   layout-h-pane {
     position: absolute;
     width: 100%;
@@ -17,7 +17,7 @@
     bottom: 0;
     top: calc(var(--toolbar-height) + var(--control-panel-height) + 0px);
   }
-  
+
   demo-main-toolbar {
     position: absolute;
     border-top: solid 1px rgba(0, 0, 0, 0.2);
@@ -29,11 +29,11 @@
     border-bottom: solid 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
   }
-  
+
   demo-passage {
     height: 100%;
   }
-  
+
   .part {
     background-color: var(--main-bg, lightblue);
     border-bottom: solid 1px rgba(0, 0, 0, 0.2);
@@ -52,7 +52,7 @@
 <demo-main-toolbar></demo-main-toolbar>
 <tools-masking target-id="h-pane"></tools-masking>
 <layout-h-pane class="h-pane" id="h-pane">
-  <demo-passage data-id="passage-one" slot="left"></demo-passage>
+  <demo-passage pie-id="passage-one" slot="left"></demo-passage>
   <div slot="right">
     <pie-player>
       <demo-section key="1">
